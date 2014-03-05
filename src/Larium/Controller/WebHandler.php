@@ -29,7 +29,7 @@ class WebHandler
     }
 
     /**
-     * handle
+     * Handles given request and returns as Response object.
      *
      * @param RequestInterface $request
      * @param Router $router

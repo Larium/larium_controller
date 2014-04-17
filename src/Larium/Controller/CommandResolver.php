@@ -15,9 +15,12 @@ class CommandResolver implements CommandResolverInterface
 
     protected $args = array();
 
-    public function __construct(Router $router)
+    protected $container;
+
+    public function __construct(Router $router, $container = null)
     {
         $this->setRouter($router);
+        $this->container = $container;
     }
 
     public function setRouter(Router $router)
@@ -64,7 +67,7 @@ class CommandResolver implements CommandResolverInterface
                     throw new \RuntimeException(sprintf('Class \'%s\' not found', $controller_class), 404);
                 }
 
-                $controller = new $controller_class();
+                $controller = new $controller_class($this->container);
 
                 try {
                     $command = new \ReflectionMethod($controller, $route->getAction());

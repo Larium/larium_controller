@@ -4,8 +4,9 @@
 
 namespace Larium\Controller;
 
-abstract class ActionController
+abstract class ActionController implements ContainerAwareInterface
 {
+    protected $container;
 
     final public function __construct()
     {
@@ -15,5 +16,21 @@ abstract class ActionController
     public function init()
     {
 
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getContainer()
+    {
+        return $this->container;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setContainer($container)
+    {
+        $this->container = $container;
     }
 }

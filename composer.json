@@ -1,0 +1,37 @@
+{
+    "name": "larium/controller",
+    "description": "Implementation of front controller design pattern",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andreas Kollaros",
+            "email": "andreaskollaros@ymail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "url": "git@github.com:Larium/larium_routing.git",
+            "type": "git"
+        },
+        {
+            "url": "git@github.com:Larium/larium_executor.git",
+            "type": "git"
+        },
+        {
+            "url": "git@github.com:Larium/larium_http.git",
+            "type": "git"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "larium/routing": "*",
+        "larium/executor": "*"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": {
+            "Larium\\": "src/"
+        }
+    }
+}

@@ -1,2 +1,1 @@
-larium_controller
-=================
+Implementation of front controller design pattern.

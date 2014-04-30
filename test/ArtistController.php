@@ -12,5 +12,7 @@ class ArtistController extends ActionController
     public function show($id, Request $request)
     {
         $this->id = $id;
+
+        return new Response();
     }
 }

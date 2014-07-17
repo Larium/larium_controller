@@ -4,6 +4,8 @@
 
 namespace Larium\Controller;
 
+use Larium\Http\RequestInterface;
+
 abstract class ActionController implements ContainerAwareInterface
 {
     protected $container;
@@ -12,7 +14,7 @@ abstract class ActionController implements ContainerAwareInterface
     {
     }
 
-    public function init()
+    public function init(RequestInterface $request)
     {
 
     }

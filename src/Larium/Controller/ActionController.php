@@ -10,7 +10,6 @@ abstract class ActionController implements ContainerAwareInterface
 
     final public function __construct()
     {
-        $this->init();
     }
 
     public function init()

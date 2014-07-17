@@ -58,6 +58,15 @@ class WebHandler
             $message = new Message\BeforeCommand($this, $request, $command);
             $this->executor->execute(static::BEFORE_COMMAND, $message);
 
+            if (is_array($command) && $command[0] instanceof ActionController) {
+                // Initialize command
+                $response = $command[0]->init($request);
+
+                if ($response instanceof ResponseInterface) {
+                    return $response;
+                }
+            }
+
             // Execute Command
             $response = call_user_func_array($command, $resolver->getArgs());
 
@@ -69,7 +78,7 @@ class WebHandler
                 $response = $message->getResponse();
 
                 if (!$response instanceof ResponseInterface) {
-                    throw new \LogicException('You must return an ResponseInterface!');
+                    throw new \LogicException('You must return a ResponseInterface!');
                 }
             }
 

@@ -20,7 +20,9 @@ class FrontControllerTest extends \PHPUnit_Framework_TestCase
         $router = new Router();
         $resolver = new CommandResolver($router);
 
-        echo $web->handle($this->getRequest(), $resolver)->send();
+        $response = $web->handle($this->getRequest(), $resolver)->send();
+
+        $this->assertEquals(2, $response);
     }
 
     private function getRequest()

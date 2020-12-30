@@ -25,6 +25,13 @@ class FrontControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(2, $response);
     }
 
+    public function testFastRouteCommandResolver()
+    {
+        $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
+            $r->addRoute('GET', '/artist/show/{id:[0-9]+}', 'ArtistController:show');
+        });
+    }
+
     private function getRequest()
     {
         $server = array(

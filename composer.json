@@ -28,6 +28,9 @@
         "larium/routing": "*",
         "larium/executor": "*"
     },
+    "require-dev": {
+        "nikic/fast-route": "0.3.0"
+    },
     "minimum-stability": "dev",
     "autoload": {
         "psr-0": {
